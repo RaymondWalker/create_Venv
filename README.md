@@ -8,4 +8,6 @@ create_venv -projectName "replace_With_Project_Name"
 
 This will add a requirements.txt file along with a git repository. 
 
+If you need an easier to remember command, simply change the name of the batch file. 
+
 I hope this simple script offers as much utility to you as it does to me. 
