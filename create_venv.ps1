@@ -31,7 +31,7 @@ pip install pytest
 # Save the list of packages to the requirements.txt file
 pip freeze > requirements.txt
 
-# Create activate_venv.bat 
+# Create activate.bat 
 $activateScriptContent = '@echo off
 REM Activate the virtual environment in the current directory
 if exist venv\Scripts\activate (
@@ -44,7 +44,7 @@ if exist venv\Scripts\activate (
 $activateScriptContent | Out-File -FilePath "activate.bat" -Encoding ASCII
 
 
-# Create the deactivate_venv.bat script
+# Create the deactivate.bat script
 $deactivateScriptContent = '@echo off
 REM Deactivate the virtual environment if it is active
 REM This command directly calls the deactivate function in the same session.
