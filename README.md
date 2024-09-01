@@ -10,4 +10,6 @@ This will add a requirements.txt file along with a git repository.
 
 If you need an easier to remember command, simply change the name of the batch file. 
 
+The ability to activate and deactivate the virtual environment from the root folder was added. 
+
 I hope this simple script offers as much utility to you as it does to me. 
