@@ -31,28 +31,26 @@ pip install pytest
 # Save the list of packages to the requirements.txt file
 pip freeze > requirements.txt
 
-# Create activate.bat 
-$activateScriptContent = '@echo off
-REM Activate the virtual environment in the current directory
-if exist venv\Scripts\activate (
-	call venv\Scripts\activate
-)else (
-	echo No virtual environment found in this directory.
+# create environment mananger script 
+$environmentManagerScript = '@echo off
+REM This script manages the virtual environment activation and deactivation.
+
+if "%1" == "activate" (
+    call venv\Scripts\activate
+	echo Virtual envitonment activated.
+) else if "%1" == "deactivate" (
+    if defined VIRTUAL_ENV (
+        call venv\Scripts\deactivate
+        echo Virtual environment deactivated.
+    ) else (
+        echo No active virtual environment found.
+    )
+) else (
+    echo Usage: manage_env.bat [activate^|deactivate]
 )'
 
-# Save the activate file 
-$activateScriptContent | Out-File -FilePath "activate.bat" -Encoding ASCII
-
-
-# Create the deactivate.bat script
-$deactivateScriptContent = '@echo off
-REM Deactivate the virtual environment if it is active
-REM This command directly calls the deactivate function in the same session.
-call venv\Scripts\deactivate.bat || echo "No active virtual environment found."
-'
-
-# Save the deactivate file
-$deactivateScriptContent | Out-File -FilePath "deactivate.bat" -Encoding ASCII
+#save enironment file
+$environmentManagerScript | Out-File -FilePath "manage_venv.bat" -Encoding ASCII
 
 #print confirmation message
 Write-Host "Project $projectName created and virtual environment established."
