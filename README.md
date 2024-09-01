@@ -2,7 +2,7 @@
 Script that creates virtual environment for python. 
 
 I needed a faster way to create a project with a list of required depencies for easier documentation. 
-To use, simply add to your "Path" variable, then use the syntax in cmd
+To use, simply add location to your "Path" variable, then use the syntax in cmd:
 
 create_venv -projectName "replace_With_Project_Name"
 
